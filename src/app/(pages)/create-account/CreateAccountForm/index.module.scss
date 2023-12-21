@@ -4,15 +4,17 @@
   margin-bottom: var(--base);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: calc(var(--base) / 2);
   align-items: flex-start;
-  width: 100%;
-  margin-top: 30px;
+  width: 66.66%;
 
+  @include mid-break {
+    width: 100%;
+  }
 }
 
 .submit {
-width: 100%;
+  margin-top: calc(var(--base) / 2);
 }
 
 .message {

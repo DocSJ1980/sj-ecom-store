@@ -20,7 +20,8 @@ import { Gutter } from '../../_components/Gutter'
 // See https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamic
 // If you are not using Payload Cloud then this line can be removed, see `../../../README.md#cache`
 export const dynamic = 'force-dynamic'
-import classes from './page.module.scss'
+import classes from './index.module.scss'
+import Categories from '../../_components/Categories'
 
 export default async function Page({ params: { slug = 'home' } }) {
   const { isEnabled: isDraftMode } = draftMode()
@@ -60,6 +61,9 @@ export default async function Page({ params: { slug = 'home' } }) {
       {slug === 'home' ?
         <section>
           <Hero {...hero} />
+          <Gutter className={classes.home}>
+            <Categories categories={categories} />
+          </Gutter>
         </section>
         :
         <>

@@ -6,6 +6,7 @@ import { PAGES } from '../_graphql/pages'
 import { PRODUCTS } from '../_graphql/products'
 import { GRAPHQL_API_URL } from './shared'
 import { payloadToken } from './token'
+import { CATEGORIES } from '../_graphql/categories'
 
 const queryMap = {
   pages: {
@@ -20,12 +21,16 @@ const queryMap = {
     query: ORDERS,
     key: 'Orders',
   },
+  categories: {
+    query: CATEGORIES,
+    key: 'Categories',
+  },
 }
 
-export const fetchDocs = async <T>(
+export const fetchDocs = async<T>(
   collection: keyof Config['collections'],
-  draft?: boolean,
-): Promise<T[]> => {
+  draft ?: boolean,
+): Promise<T[] > => {
   if (!queryMap[collection]) throw new Error(`Collection ${collection} not found`)
 
   let token: RequestCookie | undefined
